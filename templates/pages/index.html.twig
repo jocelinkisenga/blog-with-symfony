@@ -1,6 +1,7 @@
-<h2>{{name}}</h2>
-
-
-<div>
-	pourquoi ne pas reussir
-</div>
+{% extends "base.html.twig" %}
+{% block title %} lushidev blog{% endblock %}
+	{% block body %}
+		{% for post in posts %}
+			<h4>{{post}}</h4>
+		{% endfor %}
+	{% endblock %}

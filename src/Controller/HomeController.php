@@ -12,14 +12,16 @@ class HomeController extends AbstractController {
 
 	#[Route('/', name:'app_index', methods:['GET','HEAD'])]
 	public function index (): Response {
-		
-		return $this->render('pages/index.html.twig',['name'=>$this->nom]);
+		$posts = ["retour du président", "assemblée provinciale", "vote en afganistan"];
+		return $this->render('pages/index.html.twig',['posts'=>$posts]);
 	}
 
-	#[Route('/detail/',)]
-	public function detail (): Response {
-		return $this->render('pages/detail.html.twig ',['title'=>'nouvel article']);
+	#[Route('/detail', name:'app_detail', methods:['GET','HEAD'])]
+	public function show (): Response {
+		
+		return $this->render('pages/details.html.twig',[ 'title'=> 'maria']);
 	}
+	
 
 
 }
