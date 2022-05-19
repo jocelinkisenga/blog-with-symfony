@@ -10,14 +10,16 @@ class HomeController extends AbstractController {
 
 	public string $nom = "jocelin";
 
-	
+	#[Route('/', name:'app_index', methods:['GET','HEAD'])]
 	public function index (): Response {
 		
 		return $this->render('pages/index.html.twig',['name'=>$this->nom]);
 	}
 
-	#[Route('/detail/{slug}')]
-	public function detail (string $slug = null): Response {
-		return new Response('name: maria kinyanta '.$slug);
+	#[Route('/detail/',)]
+	public function detail (): Response {
+		return $this->render('pages/detail.html.twig ',['title'=>'nouvel article']);
 	}
+
+
 }
